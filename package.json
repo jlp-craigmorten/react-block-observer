@@ -1,0 +1,78 @@
+{
+  "name": "react-block-observer",
+  "version": "0.1.0",
+  "description": "React library for observing and loading blocks of items in lists.",
+  "author": "Craig Morten <craig.morten@waitrose.co.uk>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlp-craigmorten/react-block-observer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jlp-craigmorten/react-block-observer/issues"
+  },
+  "homepage": "https://github.com/jlp-craigmorten/react-block-observer#readme",
+  "keywords": [
+    "react",
+    "observer",
+    "block",
+    "element",
+    "intersection"
+  ],
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/index.d.ts",
+  "module": "./lib/esm/index.legacy-esm.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./lib/esm/index.d.mts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/index.d.ts",
+        "default": "./lib/cjs/index.cjs"
+      }
+    },
+    "./browser.js": {
+      "unpkg": "./lib/esm/index.browser.js",
+      "browser": "./lib/esm/index.browser.js",
+      "import": "./lib/esm/index.browser.js",
+      "default": "./lib/esm/index.browser.js"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "yarn clean && yarn compile",
+    "ci": "yarn build && yarn lint && yarn test && yarn test:types",
+    "clean": "rimraf lib",
+    "compile": "tsup",
+    "test": "vitest run",
+    "test:types": "attw --pack . --exclude-entrypoints browser.js",
+    "test:watch": "vitest",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "prepublish": "yarn build"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.4",
+    "@biomejs/biome": "^1.9.4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@types/react": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "jsdom": "^26.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
+  }
+}
