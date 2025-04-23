@@ -18,12 +18,12 @@ const CONTAINER_STYLE: CSSProperties = {
 
 export interface LoadRange {
   /**
-   * The end index of the items that should be marked asx successfully loaded.
+   * The end index of the items that should be marked as successfully loaded.
    */
   end: number;
 
   /**
-   * The start index of the items that should be marked asx successfully loaded.
+   * The start index of the items that should be marked as successfully loaded.
    */
   start: number;
 }
