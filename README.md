@@ -22,6 +22,8 @@ pnpm add react-block-observer
 ## Usage
 
 ```tsx
+import { BlockObserver } from "react-block-observer";
+
 // Number of items before an unloaded block comes into view to trigger the
 // intersection callback.
 const BUFFER_SIZE = 10;
