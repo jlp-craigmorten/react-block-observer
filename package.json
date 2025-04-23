@@ -1,6 +1,6 @@
 {
   "name": "react-block-observer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React library for observing and loading blocks of items in lists.",
   "author": "Craig Morten <craig.morten@waitrose.co.uk>",
   "license": "MIT",

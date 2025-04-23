@@ -31,26 +31,26 @@ const BUFFER_SIZE = 10;
 // Number of items to fetch either side of the intersection index.
 const BATCH_SIZE = 25;
 
+const handleIntersection = ({ index, start, end }) => {
+  // In this example we fetch a batch either side of the index.
+  // You could also choose to always load past the index etc.
+  const batchStart = Math.max(start, Math.floor(index - BATCH_SIZE));
+  const batchEnd = Math.min(end, Math.ceil(index + BATCH_SIZE));
+
+  try {
+    // Simulate fetching items for the desired range.
+    const items = await fetchItems(batchStart, batchEnd);
+
+    // If successful then we return the loaded start - end range and the
+    // `BlockObserver` handles the update to blocks.
+    return { start: batchStart, end: batchEnd };
+  } catch {
+    // If there is an error then not returning results in no change to the
+    // `BlockObserver` blocks.
+  }
+};
+
 const MyListComponent = () => {
-  const handleIntersection = useCallback(({ index, start, end }) => {
-    // In this example we fetch a batch either side of the `index.
-    // You could also choose to always load past the index etc.
-    const batchStart = Math.max(start, Math.floor(index - BATCH_SIZE));
-    const batchEnd = Math.min(end, Math.ceil(index + BATCH_SIZE));
-
-    try {
-      // Simulate fetching items for the desired range.
-      const items = await fetchItems(batchStart, batchEnd);
-
-      // If successful then we return the loaded start - end range and the
-      // `BlockObserver` handles the update to blocks.
-      return { start: batchStart, end: batchEnd };
-    } catch {
-      // If there is an error then not returning results in no change to the
-      // `BlockObserver` blocks.
-    }
-  }, []);
-
   return (
     <div className="list-container">
       <List />
