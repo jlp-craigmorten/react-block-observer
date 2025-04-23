@@ -16,7 +16,8 @@
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "lib"]

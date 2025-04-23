@@ -76,8 +76,8 @@ export interface BlockObserverProps {
 }
 
 /**
- * A component that observes blocks in a list and triggers a callback
- * when unloaded blocks come into view.
+ * Observes blocks in a list and triggers a callback when unloaded blocks come
+ * into view.
  *
  * The component places itself as an invisible, inert, overlay above the list
  * to detect when the user navigates to areas that need loading.
